@@ -127,8 +127,13 @@ public class TocHw4
 		Matcher matcher2 = pattern2.matcher(address);
 		Matcher matcher3 = pattern3.matcher(address);
 		
-		if(matcher1.find() && !matcher3.find())
-			return matcher1.group();
+		if(matcher1.find())
+		{	
+			if(!matcher3.find())
+				return matcher1.group();
+			else
+				return "Invalid Address";
+		}
 		else if(matcher2.find())
 			return matcher2.group();
 		else
